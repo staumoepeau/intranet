@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include intranet *.css
+recursive-include intranet *.csv
+recursive-include intranet *.html
+recursive-include intranet *.ico
+recursive-include intranet *.js
+recursive-include intranet *.json
+recursive-include intranet *.md
+recursive-include intranet *.png
+recursive-include intranet *.py
+recursive-include intranet *.svg
+recursive-include intranet *.txt
+recursive-exclude intranet *.pyc
