@@ -7,7 +7,7 @@ app_title = "Intranet"
 app_publisher = "Sione Taumoepeau"
 app_description = "App for managing Intranet"
 app_icon = "octicon octicon-file-directory"
-app_color = "blue"
+app_color = "red"
 app_email = "sione.taumoepeau@gmail.com"
 app_license = "MIT"
 
@@ -16,7 +16,7 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/intranet/css/intranet.css"
-# app_include_js = "/assets/intranet/js/intranet.js"
+app_include_js = "/assets/intranet/js/intranet.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/intranet/css/intranet.css"
