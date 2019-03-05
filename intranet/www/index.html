@@ -1,0 +1,90 @@
+{% block head %}
+    {% include "www/base/header.html" %}
+{% endblock %} 
+
+{% block header %}
+{% for image in intranet %}
+<header class="masthead text-white text-center" style="background-image: url('{{ image.file_attach }}')";>
+    <img class="img-fluid d-block mx-auto"alt="">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <h1 class="mb-5">{{ image.file_description }}</h1>
+      </div>
+    </div>
+  </div>
+</header>
+{% endfor %}
+{% endblock %}
+
+
+{% block body %}
+<!-- Page Content -->
+<section class="features-icons bg-light text-center">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mb-5">
+            <h2>OPERATIONS</h2>
+            <hr>
+            <p class="lead mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
+            <p class="lead mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+            <hr>
+        </div>
+    </div>
+  
+    <div class="row">
+
+    {% for operation in operations %}
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{ operation.file_icon }}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{ operation.folder_name }}</h4>
+            <p class="card-text">{{ operation.file_description }}</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- /.row -->
+</section>
+
+<section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+        <div class="col-md-8 mb-5">
+            <h2>FINANCE</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+            <hr>
+        </div>
+    </div>
+  
+    <div class="row">
+
+    {% for doc in finance %}
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{{ doc.file_icon }}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">{{ doc.folder_name }}</h4>
+            <p class="card-text">{{ doc.file_description }}</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- /.row -->
+  </div>
+  </section>
+  <!-- /.container -->
+{% endblock %}
+

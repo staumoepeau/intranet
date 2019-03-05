@@ -41,7 +41,9 @@ app_include_js = "/assets/intranet/js/intranet.js"
 # role_home_page = {
 #	"Role": "home_page"
 # }
-
+role_home_page = {
+    "Guest": "index"
+}
 # Website user home page (by function)
 # get_website_user_home_page = "intranet.utils.get_home_page"
 
