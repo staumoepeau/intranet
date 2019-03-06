@@ -1,7 +1,6 @@
 {% include "www/base/header.html" %}
 
-{% block header %}
-{% for image in intranet %}
+{% for image in intranet_header %}
 <header class="masthead text-white text-center" style="background-image: url('{{ image.file_attach }}')";>
     <img class="img-fluid d-block mx-auto"alt="">
   <div class="overlay"></div>
@@ -14,8 +13,6 @@
   </div>
 </header>
 {% endfor %}
-{% endblock %}
-
 
 {% block body %}
 <!-- Page Content -->
