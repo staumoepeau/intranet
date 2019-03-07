@@ -41,7 +41,7 @@ header.masthead h1 {
 }
 
 @media (min-width: 768px) {
-  header.masthead {
+  header.masthead {where section='Operations
     padding-top: 12rem;
     padding-bottom: 12rem;
   }

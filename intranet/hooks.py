@@ -5,7 +5,7 @@ from . import __version__ as app_version
 app_name = "intranet"
 app_title = "Intranet"
 app_publisher = "Sione Taumoepeau"
-app_description = "App for managing Intranet"
+app_description = "App for creating a Intranet inside ERPNext"
 app_icon = "octicon octicon-mention"
 app_color = "red"
 app_email = "sione.taumoepeau@gmail.com"

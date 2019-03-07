@@ -9,27 +9,28 @@
           <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
           <link rel="stylesheet" type="text/css" href="./bootstrap/css/landing-page.css">
           <script src="./bootstrap/js/bootstrap.min.js"></script>
+          <script src="./bootstrap/js/creative.min.js"></script>
   </head>
   <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
 
         <a class="navbar-brand" href="#">TAL INTRANET</a>
        
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto navbar-left">
               {% for menu in top_menu %}
             <li class="nav-item">
-              <a class="nav-link" href="#">{{ menu.intranet_menu }}
+              <a class="nav-link js-scroll-trigger" href="#{{menu.intranet_menu}}">{{ menu.intranet_menu }}
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             {% endfor %}
           </ul>
          <ul class="navbar-nav ml-auto navbar-right">
-          <li> <a class="btn btn-primary" href="http://intranet.tongaairports.com/login">Sign In</a></li>
+          <li> <a class="btn btn-primary" href="login">Sign In</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

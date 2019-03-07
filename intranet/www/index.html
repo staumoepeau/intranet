@@ -3,7 +3,6 @@
 {% for image in intranet_header %}
 <header class="masthead text-white text-center" style="background-image: url('{{ image.file_attach }}')";>
     <img class="img-fluid d-block mx-auto"alt="">
-  <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
@@ -15,70 +14,48 @@
 {% endfor %}
 
 {% block body %}
+
 <!-- Page Content -->
-<section class="features-icons bg-light">
+{% for doc in top_menu %}
+<section class="{{ doc.section_class }} {{ doc.section_background }}" id="{{ doc.intranet_menu }}">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h2>OPERATIONS</h2>
+            <h2>{{ doc.intranet_menu }}</h2>
             <hr>
-            <p class="lead mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-            <hr>
+            <div class="mx-auto">
+              <div class="bg-faded rounded p-5">
+            <p class="text-muted mb-0">{{ doc.intranet_menu_details }}</p>
+              </div>
+            </div>
         </div>
     </div>
   
     <div class="row">
-
-    {% for operation in operations %}
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="{{ operation.file_icon }}" alt="">
+    {% for document in document_manager %}
+      {% if document.section == doc.intranet_menu %}
+      <div class="col-md-2 mb-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">{{ document.file_name }}</h6>
+            </div>
+            {% for icon in file_image %}
+              {% if icon.name == document.file_type %}
+          <img class="card-img-top" src="{{ icon.file_icon }}" alt="">
+              {% endif %}
+            {% endfor %}
           <div class="card-body">
-            <h4 class="card-title">{{ operation.section }}</h4>
-            <p class="card-text">{{ operation.file_description }}</p>
+            <p class="card-text">{{ document.file_description }}</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="{{ document.file_attach}}" class="btn btn-primary">Download</a>
           </div>
         </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
     <!-- /.row -->
 </section>
-
-<section class="showcase">
-    <div class="container-fluid">
-      <div class="row no-gutters">
-        <div class="col-md-8 mb-5">
-            <h2>FINANCE</h2>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-            <hr>
-        </div>
-    </div>
-  
-    <div class="row">
-
-    {% for doc in finance %}
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="{{ doc.file_icon }}" alt="">
-          <div class="card-body">
-            <h4 class="card-title">{{ doc.section }}</h4>
-            <p class="card-text">{{ doc.file_description }}</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    <!-- /.row -->
-  </div>
-  </section>
-  <!-- /.container -->
+{% endfor %}
 {% endblock %}
-
