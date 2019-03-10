@@ -15,51 +15,80 @@
 
 {% block body %}
 
-<!-- Page Content -->
-{% for doc in top_menu %}
-<section class="{{ doc.section_class }} {{ doc.section_background }}" id="{{ doc.intranet_menu }}">
-<div class="container-fluid">
-    <div class="row">
+<!-- Setting Page Content with Main Heading -->
+{% for group, items in document_manager | groupby('section') %}
+  {% for menu in top_menu %}
+    {% if menu.intranet_menu == group %}
+<section class="{{ menu.section_class }} {{ menu.section_background }}" id="{{ group }}">
+    {% endif %}
+  {% endfor %}
+  <div class="container-fluid">
+      <div class="row">
+        
         <div class="col-md-12">
-            <h2>{{ doc.intranet_menu }}</h2>
+            <h2>{{ group }}</h2>
             <hr>
             <div class="mx-auto">
               <div class="bg-faded rounded p-5">
-            <p class="text-muted mb-0">{{ doc.intranet_menu_details }}</p>
+                  {% for menu in top_menu %}
+                  {% if menu.intranet_menu == group %}
+                <p class="text-muted mb-0">{{ menu.intranet_menu_details }}</p>
+                {% endif %}
+                 {% endfor %}
               </div>
             </div>
         </div>
-    </div>
-  
-    <div class="row">
-    {% for document in document_manager %}
-      {% if document.section == doc.intranet_menu %}
-      <div class="col-md-2 mb-6">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">{{ document.file_name }}</h6>
-            </div>
-            {% for icon in file_image %}
-              {% if icon.name == document.file_type %}
-          <img class="card-img-top" src="{{ icon.file_icon }}" alt="">
-              {% endif %}
-            {% endfor %}
-          <div class="card-body">
-            <p class="card-text">{{ document.file_description }}</p>
-          </div>
-          <div class="card-footer">
-            <a href="{{ document.file_attach}}" class="btn btn-primary">Download</a>
-          </div>
+
+  <!--- \End Main Heading  -->
+        <div class="container">
+            <div class="card shadow ">
+            <div class="row">
+              
+          {% for sub_heading, list in items |  groupby('sub_heading') %}
+                  <div class="col-md-12">
+                    <div class="card-header">
+                      <h5>{{ sub_heading }}</h5>
+                          
+                              {% for submenu in subheading %}
+                              {% if submenu.sub_menu == sub_heading %}
+                            <p class="text-muted mb-0">{{ submenu.menu_describtion }}</p>
+                            {% endif %}
+                             {% endfor %}
+                  </div>
+                  </div>
+                  
+                  {% for document in list %}
+                    <div class="col-md-2 mb-6"> 
+                      <div class="card-body">
+                        <div class="row">
+                      <div class="card shadow mb-6 border-primary">
+                      <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">{{ document.file_name }}</h6>
+                      </div>
+                    <img class="card-img-top" src="" alt="">
+                    <div class="card-body">
+                      <p class="card-text">{{ document.file_description }}</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="{{ document.file_attach}}" class="btn btn-{{ document.download_button }}">Download</a>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                {% endfor %}
+                {% endfor %}
+
         </div>
       </div>
-      {% endif %}
-      {% endfor %}
     </div>
     <!-- /.row -->
 </section>
 {% endfor %}
 {% endblock %}
 
+
 {% block footer %}
 {% include "www/base/footer.html" %}
 {% endblock %}
+
