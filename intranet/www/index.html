@@ -32,7 +32,7 @@
               <div class="bg-faded rounded p-5">
                   {% for menu in top_menu %}
                   {% if menu.intranet_menu == group %}
-                <p class="text-muted mb-0">{{ menu.intranet_menu_details }}</p>
+                <p class="text-{{ menu.text_style }} mb-0">{{ menu.intranet_menu_details }}</p>
                 {% endif %}
                  {% endfor %}
               </div>
@@ -48,10 +48,9 @@
                   <div class="col-md-12">
                     <div class="card-header">
                       <h5>{{ sub_heading }}</h5>
-                          
-                              {% for submenu in subheading %}
-                              {% if submenu.sub_menu == sub_heading %}
-                            <p class="text-muted mb-0">{{ submenu.menu_describtion }}</p>
+                              {% for details in subheading %}
+                              {% if details.sub_menu == sub_heading %}
+                            <p class="text-muted mb-0">{{ details.menu_description }}</p>
                             {% endif %}
                              {% endfor %}
                   </div>
