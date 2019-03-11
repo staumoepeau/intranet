@@ -4,35 +4,32 @@
   <head>
           <title>TAL Intranet</title>
           <meta charset="utf-8">
-          <script src="./bootstrap/js/jquery.min.js"></script>
-          <link rel="stylesheet" type="text/css" href="./font-awesome/css/font-awesome.min.css">
-          <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
-          <link rel="stylesheet" type="text/css" href="./bootstrap/css/landing-page.css">
-          <script src="./bootstrap/js/bootstrap.min.js"></script>
-          <script src="./bootstrap/js/creative.min.js"></script>
+          <script src="lib/jquery/jquery.min.js"></script>
+          <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+          <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+          <link rel="stylesheet" type="text/css" href="lib/style.css">
+          <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
   </head>
   <body>
-  <header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
 
-        <a class="navbar-brand" href="#">TAL INTRANET</a>
-       
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto navbar-left">
+<header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+         <h1><a href="#hero">TAL INTRANET</a></h1>
+        </div>
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+              <li class="menu-active"><a href="#hero">Home</a></li>
+              <li class="menu"><a href="#hero">News</a></li>
               {% for menu in top_menu %}
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#{{menu.intranet_menu}}">{{ menu.intranet_menu }}
-                <span class="sr-only">(current)</span>
+            <li>
+              <a href="#{{menu.intranet_menu}}">{{ menu.intranet_menu }}
               </a>
             </li>
             {% endfor %}
-          </ul>
-         <ul class="navbar-nav ml-auto navbar-right">
-          <li> <a class="btn btn-primary" href="login">Sign In</a></li>
+          <li> <a href="login">Sign In</a></li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
   </nav>
+  </div>
 </header>

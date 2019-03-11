@@ -1,89 +1,62 @@
 {% include "www/base/header.html" %}
 
+
 {% for image in intranet_header %}
-<header class="masthead text-white text-center" style="background-image: url('{{ image.file_attach }}')";>
-    <img class="img-fluid d-block mx-auto"alt="">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-9 mx-auto">
+<section id="hero" style="background-image: url('{{ image.file_attach }}')">
+    <div class="hero-container">
         <h1 class="mb-5">{{ image.intranet_title }}</h1>
-      </div>
     </div>
-  </div>
-</header>
-{% endfor %}
-
-{% block body %}
-
-<!-- Setting Page Content with Main Heading -->
-{% for group, items in document_manager | groupby('section') %}
-  {% for menu in top_menu %}
-    {% if menu.intranet_menu == group %}
-<section class="{{ menu.section_class }} {{ menu.section_background }}" id="{{ group }}">
-    {% endif %}
-  {% endfor %}
-  <div class="container-fluid">
-      <div class="row">
-        
-        <div class="col-md-12">
-            <h2>{{ group }}</h2>
-            <hr>
-            <div class="mx-auto">
-              <div class="bg-faded rounded p-5">
-                  {% for menu in top_menu %}
-                  {% if menu.intranet_menu == group %}
-                <p class="text-{{ menu.text_style }} mb-0">{{ menu.intranet_menu_details }}</p>
-                {% endif %}
-                 {% endfor %}
-              </div>
-            </div>
-        </div>
-
-  <!--- \End Main Heading  -->
-        <div class="container">
-            <div class="card shadow ">
-            <div class="row">
-              
-          {% for sub_heading, list in items |  groupby('sub_heading') %}
-                  <div class="col-md-12">
-                    <div class="card-header">
-                      <h5>{{ sub_heading }}</h5>
-                              {% for details in subheading %}
-                              {% if details.sub_menu == sub_heading %}
-                            <p class="text-muted mb-0">{{ details.menu_description }}</p>
-                            {% endif %}
-                             {% endfor %}
-                  </div>
-                  </div>
-                  
-                  {% for document in list %}
-                    <div class="col-md-2 mb-6"> 
-                      <div class="card-body">
-                        <div class="row">
-                      <div class="card shadow mb-6 border-primary">
-                      <div class="card-header py-3">
-                          <h6 class="m-0 font-weight-bold text-primary">{{ document.file_name }}</h6>
-                      </div>
-                    <img class="card-img-top" src="" alt="">
-                    <div class="card-body">
-                      <p class="card-text">{{ document.file_description }}</p>
-                    </div>
-                    <div class="card-footer">
-                      <a href="{{ document.file_attach}}" class="btn btn-{{ document.download_button }}">Download</a>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                {% endfor %}
-                {% endfor %}
-
-        </div>
-      </div>
-    </div>
-    <!-- /.row -->
 </section>
 {% endfor %}
+
+
+{% block body %}
+<!-- Setting Page Content with Main Heading -->
+  {% for group, items in document_manager | groupby('section') %}
+      {% for menu in top_menu %}
+        {% if menu.intranet_menu == group %}
+    <section class="portfolio {{ menu.section_background }}" id="{{ group }}">
+        {% endif %}
+      {% endfor %}
+        <div class="container wow fadeInUp">
+            <div class="section-header">
+                <h3 class="section-title">{{ group }}</h3>
+                <p class="section-description"></p>
+              </div>
+              {% for sub_heading, list in items |  groupby('sub_heading') %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                              <ul id="portfolio-flters">
+                                <li data-filter=".{{ sub_heading }}">{{ sub_heading }}</li>
+                              </ul>
+                            </div>
+                        </div>
+
+                        
+                        <div class="row" id="portfolio-wrapper">
+                            {% for document in list %}
+                            <div class="col-lg-3 col-md-6 service wow fadeInUp {{ sub_heading }}">
+                                    <div class="box">
+                                      <h4 class="title"><a href="">{{ document.file_name }}</a></h4>
+                                      <p class="description">{{ document.file_description }}</p>
+                                   
+                                    <div class="box-footer">
+                                        <a href="{{ document.file_attach}}" class="btn btn-{{ document.download_button }}">Download</a>
+                                      </div>
+                                    </div>
+                            </div>
+                            
+                        
+                      {% endfor %}
+                      </div>
+                      {% endfor %}
+            </div>
+          <!-- /.row -->
+      </section>
+
+
+  {% endfor %}
+
 {% endblock %}
 
 
