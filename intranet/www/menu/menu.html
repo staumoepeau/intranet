@@ -1,0 +1,48 @@
+
+  {% for group, items in document_manager | groupby('section') %}
+    {% for menu in top_menu %}
+      {% if menu.intranet_menu == group %}
+      <section="service {{ menu.section_background }}">
+      {% endif %}
+    {% endfor %}
+      <!-- Classic tabs -->
+      <div class="container-fluid">
+          <h1 class="text-center my-3">{{ group }}</h1>
+
+      <div class="tabs">
+          {% macro render_heading(heading_list, sep=False) %}
+          <div class="tab-button-outer">
+            <ul id="tab-button">
+                {% for group_heading, heading_list in items | groupby('sub_heading') %}
+              <li><a href="#{{ group_heading }}">{{ group_heading }}</a></li>
+             
+                {% endfor %}
+            </ul>
+          </div>
+
+          {% for document in render_heading(heading_list) %}
+          <div id="{{ document.name }}" class="tab-contents">
+                <div class="row" id="portfolio-wrapper">
+                  <div class="col-lg-3 col-md-6 service wow fadeInUp {{ document.sub_heading }}">
+                      <div class="box">
+                        <h4 class="title"><a href="">{{ document.file_name }}</a></h4>
+                        <p class="description">{{ document.file_description }}</p>
+                    
+                        <div class="box-footer">
+                           <a href="{{ document.file_attach}}" class="btn btn-{{ document.download_button }}">Download</a>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+          {% endmacro %}
+        </div> <!--Tabs -->
+
+      </div>  <!--Container -->
+
+
+      <!-- Classic tabs -->
+      </section>
+{% endfor %}
+

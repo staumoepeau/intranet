@@ -6,8 +6,8 @@ def get_data():
 	return [
 		{
 			"module_name": "Intranet",
-			"color": "blue",
-			"icon": "octicon octicon-file-directory",
+			"color": "red",
+			"icon": "octicon octicon-mention",
 			"type": "module",
 			"label": _("Intranet")
 		}

@@ -13,4 +13,4 @@ def get_context(context):
     context.document_manager = frappe.db.sql("select sub_heading, file_attach, file_name, section, file_description, download_button from `tabDocument Manager` where published = 1", as_dict=True)
     context.subheading = frappe.db.sql("select sub_menu, menu_description from `tabIntranet Sub Menu` where published = 1", as_dict=True)
 
-    context.latest_news = frappe.db.sql("select name, news_title, news_image, news_details, news_date, owner from `tabIntranet News` where published = 1", as_dict=True)
+    context.latest_news = frappe.db.sql("select name, news_title, news_image, news_details, creation, owner from `tabIntranet News` where published = 1", as_dict=True)
