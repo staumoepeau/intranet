@@ -17,13 +17,15 @@
 <header id="header">
     <div class="container">
       <div id="logo" class="pull-left">
-         <h1><a href="#hero">TAL INTRANET</a></h1>
+          <a class="navbar-brand" href="#">
+              <img src="/files/TAL_Logo.png" alt="Logo" style="width:100px;">
+            </a>
         </div>
         <nav id="nav-menu-container">
           <ul class="nav-menu">
               <li class="menu-active"><a href="#hero">Home</a></li>
               <li class="menu"><a href="#news">News</a></li>
-              {% for menu in top_menu %}
+              {% for menu in navbar_menu %}
             <li>
               <a href="#{{menu.intranet_menu}}">{{ menu.intranet_menu }}
               </a>

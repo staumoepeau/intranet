@@ -94,7 +94,7 @@ jQuery(document).ready(function ($) {
   "use strict";
   // Auto-scroll
   $('#myCarousel').carousel({
-    interval: 5000
+    interval: false
   });
 
   // Control buttons

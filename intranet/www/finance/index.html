@@ -1,5 +1,21 @@
+{% include "www/base/header.html" %}
 
-  {% for group, items in document_manager | groupby('section') %}
+
+{% for image in intranet_header %}
+<section id="hero" style="background-image: url('{{ image.file_attach }}')">
+    <div class="hero-container">
+        <h1 class="mb-5">{{ image.intranet_title }}</h1>
+    </div>
+</section>
+{% endfor %}
+
+{% block news %}
+  {% include "/www/news/news.html" %}
+{% endblock %}
+
+<!-- Page Content -->
+
+{% for group, items in document_manager | groupby('section') %}
     {% for menu in top_menu %}
       {% if menu.intranet_menu == group %}
       <section class="service {{ menu.section_background }}" id="{{ group }}">
@@ -13,15 +29,16 @@
           <div class="tab-button-outer">
             <ul id="tab-button">
                 {% for heading, list in items | groupby('sub_heading') %}
-              <li class="{% if loop.index is divisibleby 2 %}active{% endif %}"><a href="#{{ heading }}">{{ heading }}</a></li>
+              <li class="{% if loop.index is divisibleby 3 %}active{% endif %}"><a href="#{{ heading }}">{{ heading }}</a></li>
+                   {% set header = heading %}
                 {% endfor %}
             </ul>
           </div>
-          {% for item in items | groupby('sub_heading') %}
+          {% for item, list in items | groupby('sub_heading') %}
           <div id="{{ item }}" class="tab-contents">
               <div class="row">
               {% for document in list %}
-                  <div class="card {% if loop.index is divisibleby 2 %}active{% endif %}" style="width: 15rem;">
+                  <div class="card {% if loop.index is divisibleby 3 %}active{% endif %}" style="width: 15rem;">
                       <div class="card-body">
                         <h5 class="card-title">{{ document.file_name }}</h5>
                         <p class="card-text">{{ document.file_description }}</p>
@@ -39,4 +56,8 @@
       <!-- Classic tabs -->
       </section>
 {% endfor %}
+<!-- /.container -->
 
+{% block footer %}
+{% include "/www/base/footer.html" %}
+{% endblock %}
