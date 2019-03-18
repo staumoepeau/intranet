@@ -1,4 +1,4 @@
-<!-- Setting Page Content with Main Heading -->
+<!-- Setting Page Content with Main Heading 
   {% for group, items in document_manager | groupby('top_menu') %}
       {% for menu in navbar_menu %}
         {% if menu.intranet_menu == group %}
@@ -20,24 +20,51 @@
                         </div>
 
                         
-                        <div class="row" id="portfolio-wrapper">
-                            {% for document in list %}
-                            <div class="col-lg-3 col-md-6 service wow fadeInUp {{ sub_heading }}">
-                                    <div class="box">
-                                      <h4 class="title"><a href="">{{ document.file_name }}</a></h4>
-                                      <p class="description">{{ document.file_description }}</p>
-                                   
-                                    <div class="box-footer">
-                                        <a href="{{ document.file_url}}" class="btn btn-info">Download</a>
-                                      </div>
-                                    </div>
-                            </div>
-                            
                         
-                      {% endfor %}
-                      </div>
+                            {% for document in list %}
+                            
+                            <ul class="list-group">
+                              <li class="list-group-item">{{ document.file_name }}</li>
+                            </ul>
+                    
+                           {% endfor %}
                       {% endfor %}
             </div>
-          <!-- /.row -->
+        
       </section>
   {% endfor %}
+
+    -->
+
+<div class="container">
+    <h2>Toggleable Tabs</h2>
+    <br>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#menu">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+      </li>
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div id="menu" class="container tab-pane active"><br>
+        <h3>HOME</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div id="menu1" class="container tab-pane fade"><br>
+        <h3>Menu 1</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div id="menu2" class="container tab-pane fade"><br>
+        <h3>Menu 2</h3>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      </div>
+    </div>
+</div>

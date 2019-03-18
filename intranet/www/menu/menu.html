@@ -1,42 +1,45 @@
 
-  {% for group, items in document_manager | groupby('section') %}
-    {% for menu in top_menu %}
-      {% if menu.intranet_menu == group %}
-      <section class="service {{ menu.section_background }}" id="{{ group }}">
-      {% endif %}
-    {% endfor %}
-      <!-- Classic tabs -->
-      <div class="container-fluid">
-          <h1 class="text-center my-3">{{ group }}</h1>
+{% for group, items in document_manager | groupby('top_menu') %}
+	{% for menu in navbar_menu %}
+		{% if menu.intranet_menu == group %}
+			<section class="portfolio {{ menu.section_background }}" id="{{ group }}">
+		{% endif %}
+	{% endfor %}
+				<div class="container">
+					<h1 class="text-center my-3">{{ group }}</h1>
 
-      <div class="tabs">
-          <div class="tab-button-outer">
-            <ul id="tab-button">
-                {% for heading, list in items | groupby('sub_heading') %}
-              <li class="{% if loop.index is divisibleby 2 %}active{% endif %}"><a href="#{{ heading }}">{{ heading }}</a></li>
-                {% endfor %}
-            </ul>
-          </div>
-          {% for item in items | groupby('sub_heading') %}
-          <div id="{{ item }}" class="tab-contents">
-              <div class="row">
-              {% for document in list %}
-                  <div class="card {% if loop.index is divisibleby 2 %}active{% endif %}" style="width: 15rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">{{ document.file_name }}</h5>
-                        <p class="card-text">{{ document.file_description }}</p>
-                        <a href="{{ document.file_attach}}" class="btn btn-{{ document.download_button }}">Download</a>
-                      </div>
-                  </div>
-      
-              {% endfor %}
-            </div>
-          </div>
-         
-        </div> <!--Tabs -->
-        {% endfor %}
-     </div>  <!--Container -->
-      <!-- Classic tabs -->
-      </section>
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+						{% for heading, list in items | groupby('sub_menu') %}
+					<li class="nav-item">
+						<a class="nav-link {% if loop.index is divisibleby 2 %}active{% endif %}" id="{{ group }}-{{ heading }}-tab" data-toggle="tab" href="#{{ group }}-{{ heading }}" role="tab" aria-controls="{{ group }}-{{ heading }}" aria-selected="true">{{ heading }}</a>
+					</li>
+					{% endfor %}
+					</ul>
+					
+
+					<div class="tab-content" id="myTabContent">
+
+						{% for heading, list in items | groupby('sub_menu') %}
+							
+							{% for submenu in subheading %}
+							{% if submenu.sub_menu == heading %}
+							<div class="tab-pane fade show" id="{{ group }}-{{ heading }}" role="tabpanel" aria-labelledby="{{ group }}-{{ heading }}-tab">
+									{% for document in list %}
+									<ul class="list-group">
+											<a href="{{ document.file_url }}">
+											<li class="list-group-item">{{ document.file_name }}
+													</a>
+											</li>
+										</ul>
+										{% endfor %}	
+							</div>
+							{% endif %}
+							{% endfor %}
+						{% endfor %}
+
+					</div>
+
+				</div>
+			</section>
 {% endfor %}
 
