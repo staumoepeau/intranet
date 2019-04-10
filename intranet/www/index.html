@@ -1,13 +1,9 @@
 {% include "www/base/header.html" %}
 
 
-{% for item in intranet_header %}
-<section id="hero" style="background-image: url('{{ item.file_attach }}')">
-    <div class="hero-container">
-        <h1 class="section text-center my-3">{{ item.intranet_title }}</h1>
-    </div>
-</section>
-{% endfor %}
+{% block intro %}
+  {% include "www/intro/intro.html" %}
+{% endblock %}
 
 {% block news %}
   {% include "www/news/news.html" %}

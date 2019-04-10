@@ -18,10 +18,6 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Intranet News",
-				},
-				{
-					"type": "doctype",
 					"name": "Intranet Sub Menu",
 				}
 				
@@ -33,6 +29,14 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "File",
+				},
+								{
+					"type": "doctype",
+					"name": "Intranet News",
+				},
+								{
+					"type": "doctype",
+					"name": "Intranet Vacancy",
 				},
 				{
 					"type": "doctype",

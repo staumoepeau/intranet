@@ -1,0 +1,42 @@
+   <!--===========================================================================
+                                        News Section
+    ==============================================================================-->
+
+    {% if list_vacancies %}
+    <div class="row">
+      <div class="col-lg-6">
+          {% for job in list_vacancies %}           
+          <div class="news-item">
+              <h4>{{ job.vacancy_title }}</h4>
+              <p>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{ job.name }}">
+                      Read More
+                  </button>
+              </p>             
+          </div>       
+        {% endfor %}
+      </div>
+    </div>
+
+
+{% for job in list_vacancies %}
+<!-- Modal -->
+      <div class="modal fade" id="{{ job.name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content-vacancy">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ job.vacancy_title }}</h5>
+          </div>
+          <div class="modal-body">
+            <p>
+              {{ job.vacancy_details }}
+            </p>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+      </div>
+{% endfor %}
+{% endif %}

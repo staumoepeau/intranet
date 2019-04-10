@@ -12,4 +12,3 @@ def get_context(context):
     context.document_manager = frappe.db.sql("select sub_menu, file_url, file_name, top_menu from `tabFile` where published = 1 and is_private = 0", as_dict=True)
     context.subheading = frappe.db.sql("select sub_menu, menu_description from `tabIntranet Sub Menu` where published = 1", as_dict=True)
     context.latest_news = frappe.db.sql("select name, news_title, news_image, news_details, news_date, owner from `tabIntranet News` where published = 1", as_dict=True)
-    context.list_vacancies = frappe.db.sql("select name, vacancy_title, vacancy_details from `tabIntranet Vacancy` where published = 1", as_dict=True)

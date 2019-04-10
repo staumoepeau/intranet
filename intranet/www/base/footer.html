@@ -2,7 +2,32 @@
 <footer id="footer">
     <div class="footer-top">
       <div class="container">
+          <div class="row">
+              <div class="col-lg-4 col-md-6 footer-info">
+                <h3>News</h3>
+                  {% block news %}
+                  {% include "www/news/news_block.html" %}
+                  {% endblock %}
+              </div>
 
+              <div class="col-lg-4 col-md-6 footer-contact">
+                  <h4>Contact</h4>
+                  <p>
+                    TAL Building <br>
+                    Koloua, Tofoa<br>
+                    Tongatapu <br>
+                    <strong>Phone:</strong> +111222333<br>
+                    <strong>Email:</strong> info@tongaairports.com<br>
+                  </p>
+                </div>
+              
+                <div class="col-lg-4 col-md-6 footer-info">
+                  <h3>Vacancy</h3>
+                    {% block vacancy %}
+                    {% include "www/vacancy/vacancy.html" %}
+                    {% endblock %}
+                </div>
+        </div>
       </div>
     </div>
 
@@ -23,7 +48,7 @@
 <script src="lib/waypoints/waypoints.min.js"></script>
 <script src="lib/counterup/counterup.min.js"></script>
 <script src="lib/superfish/hoverIntent.js"></script>
-<script src="lib/superfish/superfish.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js"></script>
