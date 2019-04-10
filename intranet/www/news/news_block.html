@@ -3,13 +3,14 @@
     ==============================================================================-->
 
 {% if latest_news %}
+<h3>News</h3>
         <div class="row">
           <div class="col-lg-6">
               <div class="owl-carousel news-block-carousel wow fadeInUp">
               {% for news in latest_news %}           
               <div class="news-item">
-                  <h4>{{ news.news_title }}</h4>
-                  <p>{{ news.news_details }}
+                  <h5>{{ news.news_title }}</h5>
+                  <p>
                       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{ news.name }}">
                           Read More
                       </button>
@@ -24,7 +25,7 @@
   {% for news in latest_news %}
   <!-- Modal -->
   <div class="modal fade" id="{{ news.name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">{{ news.news_title }}</h5>

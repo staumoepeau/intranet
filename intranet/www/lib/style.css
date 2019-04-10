@@ -484,7 +484,7 @@ h6 {
 }
 
 .section-bg-blue {
-  background: #a5d2e4;
+  background: #979b9e;
 }
 
 .section-header .section-divider {
@@ -653,7 +653,7 @@ Why Us Section
 */
 #blue-content {
   padding: 60px 0;
-  background: #004a99;
+/*  background: #004a99; */
 }
 
 #blue-content .section-header h3,

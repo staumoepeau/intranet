@@ -3,11 +3,12 @@
     ==============================================================================-->
 
     {% if list_vacancies %}
+    <h3>Vacancy</h3>
     <div class="row">
       <div class="col-lg-6">
           {% for job in list_vacancies %}           
           <div class="news-item">
-              <h4>{{ job.vacancy_title }}</h4>
+              <h5>{{ job.vacancy_title }}</h5>
               <p>
                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{ job.name }}">
                       Read More
