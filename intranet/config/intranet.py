@@ -32,10 +32,6 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Memo",
-				},
-								{
-					"type": "doctype",
 					"name": "Intranet News",
 				},
 								{
