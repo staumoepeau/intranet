@@ -8,3 +8,9 @@ from frappe.model.document import Document
 
 class Memo(Document):
 	pass
+
+
+@frappe.whitelist()
+def get_employee(doctype, txt, searchfield, start, page_len, filters):
+	emp = frappe.db.sql("select employee_name, employee_id, employee_group from `tabEmployee`")
+	return emp
