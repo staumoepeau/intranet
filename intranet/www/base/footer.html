@@ -3,24 +3,15 @@
     <div class="footer-top">
       <div class="container">
           <div class="row">
-              <div class="col-lg-4 col-md-6 footer-info">
-                  {% block news %}
-                  {% include "www/news/news_block.html" %}
+              <div class="col-lg-6 col-md-6 footer-info">
+                  {% block weather %}
+                  {% include "www/weather/weather.html" %}
                   {% endblock %}
               </div>
 
-              <div class="col-lg-4 col-md-6 footer-contact">
-                  <h3>Contact</h3>
-                  <p>
-                    TAL Building <br>
-                    Koloua, Tofoa<br>
-                    Tongatapu <br>
-                    <i class="fa fa-phone"></i> +676 21888<br>
-                    <i class="fa fa-envelope-o"></i><a href="mailto:info@tongaairports.com"> info@tongaairports.com</a><br>
-                  </p>
-                </div>
               
-                <div class="col-lg-4 col-md-6 footer-info">
+              
+                <div class="col-lg-5 col-md-6 footer-info">
                   
                     {% block vacancy %}
                     {% include "www/vacancy/vacancy.html" %}
@@ -28,6 +19,22 @@
                 </div>
         </div>
       </div>
+    </div>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-4 col-md-6 footer-contact">
+                <h3>Contact</h3>
+                <p>
+                  TAL Building <br>
+                  Koloua, Tofoa<br>
+                  Tongatapu <br>
+                  <i class="fa fa-phone"></i> +676 21888<br>
+                  <i class="fa fa-envelope-o"></i><a href="mailto:info@tongaairports.com"> info@tongaairports.com</a><br>
+                </p>
+              </div>
+              <div class="row">
+        </div>
     </div>
 
     <div class="container">

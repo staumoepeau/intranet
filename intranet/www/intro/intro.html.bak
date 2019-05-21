@@ -1,0 +1,13 @@
+<!--===========================================================================
+                                        Intro Section
+==============================================================================-->
+
+{% for item in intranet_header %}
+<section id="intro" class="clearfix" style="background-image: url('{{ item.file_attach }}')">
+  <div class="container">
+      <div class="intro-info">
+          <h2>{{ item.intranet_title }}</h2>
+      </div>
+  </div>
+</section><!-- #intro -->
+{% endfor %}

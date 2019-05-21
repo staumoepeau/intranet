@@ -33,7 +33,7 @@
               <li class="menu"><a href="#news">News</a></li>
               {% for menu in navbar_menu %}
             <li class="menu">
-              <a href="#{{ menu.intranet_menu }}">{{ menu.intranet_menu }}
+              <a href="#{{'_'.join(menu.intranet_menu.split()).lower()}}">{{ menu.intranet_menu }} 
               </a>
             </li>
             {% endfor %}
