@@ -98,20 +98,7 @@
     time: 1000
   });
 
-  // Porfolio isotope and filter
-  $(window).on('load', function () {
-    var portfolioIsotope = $('.portfolio-container').isotope({
-      itemSelector: '.portfolio-item'
-    });
-    $('#portfolio-flters li').on( 'click', function() {
-      $("#portfolio-flters li").removeClass('filter-active');
-      $(this).addClass('filter-active');
-  
-      portfolioIsotope.isotope({ filter: $(this).data('filter') });
-    });
-  });
-
-  // Testimonials carousel (uses the Owl Carousel library)
+  // news block carousel (uses the Owl Carousel library)
   $(".news-block-carousel").owlCarousel({
     autoplay: true,
     dots: true,
@@ -138,3 +125,24 @@
 
 })(jQuery);
 
+$('#myCarousel').carousel({
+  interval: 10000,
+  autoplay: true,
+    dots: true,
+    loop: true,
+ })
+
+$('#myCarousel.carousel .itemm').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  if (next.next().length>0) {
+    next.next().children(':first-child').clone().appendTo($(this));
+  }
+  else {
+    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+  }
+});

@@ -20,7 +20,7 @@ def get_data():
 					"type": "doctype",
 					"name": "Intranet Sub Menu",
 				}
-				
+		
 			]
 		},
 		{

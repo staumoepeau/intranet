@@ -478,13 +478,19 @@ h6 {
 
 /* Section with background
 --------------------------------*/
+.section-bg-white {
+  background: #ffffff;
+  padding: 30px 0 50px;
+}
 
 .section-bg-grey {
-  background: #ecf5ff;
+  background: #ccd4dd;
+  padding: 30px 0 50px;
 }
 
 .section-bg-blue {
-  background: #979b9e;
+  background: #6d9dc2;
+  padding: 30px 0 50px;
 }
 
 .section-header .section-divider {
@@ -873,63 +879,6 @@ Why Us Section
 #portfolio .portfolio-item .portfolio-wrap:hover .portfolio-info {
   opacity: 1;
 }
-
-
-/* Slider Section
---------------------------------*/
-
-#sliders {
-  padding: 0px 0 0px 0px;
-
-}
-
-#sliders .section-header {
-  margin-bottom: 40px;
-}
-
-#sliders .slider-item .slider-img {
-  width: 100%;
-}
-
-#sliders .slider-item h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-  color: #111;
-  margin-left: 140px;
-}
-
-#sliders .slider-item h4 {
-  font-size: 14px;
-  color: #999;
-  margin: 0 0 15px 0;
-  margin-left: 140px;
-}
-
-#sliders .slider-item p {
-  font-style: italic;
-  margin: 0 0 15px 140px;
-}
-
-#sliders .owl-nav,
-#sliders .owl-dots {
-  margin-top: 5px;
-  text-align: center;
-}
-
-#sliders .owl-dot {
-  display: inline-block;
-  margin: 0 5px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ddd;
-}
-
-#sliders .owl-dot.active {
-  background-color: #007bff;
-}
-
 /* Team Section
 --------------------------------*/
 
@@ -1342,7 +1291,7 @@ Why Us Section
 --------------------------------------------------------------*/
 
 @media (min-width: 992px) {
-  #sliders .slider-item p {
+  #talsliders .talslider-item p {
     width: 80%;
   }
 }
@@ -1400,18 +1349,18 @@ Why Us Section
     width: 100%;
   }
 
-  #sliders .slider-item {
+  #talsliders .talslider-item {
     text-align: center;
   }
 
-  #sliders .slider-item .slider-img {
+  #talsliders .talslider-item .talslider-img {
     float: none;
     margin: auto;
   }
 
-  #sliders .slider-item h3,
-  #sliders .slider-item h4,
-  #sliders .slider-item p {
+  #talsliders .talslider-item h3,
+  #talsliders .talslider-item h4,
+  #talsliders .talslider-item p {
     margin-left: 0;
   }
 }
@@ -1459,119 +1408,7 @@ Additional CSS
 
 */
 
-@media screen and (min-width: 768px) {
-  .carousel-inner .active,
-  .carousel-inner .active+.carousel-item {
-    display: block;
-  }
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item {
-    -webkit-transition: none;
-    transition: none;
-  }
-  .carousel-inner .carousel-item-next,
-  .carousel-inner .carousel-item-prev {
-    position: relative;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  .carousel-inner .active.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-    position: absolute;
-    top: 0;
-    right: -50%;
-    z-index: -1;
-    display: block;
-    visibility: visible;
-  }
-  /* left or forward direction */
-  .active.carousel-item-left+.carousel-item-next.carousel-item-left,
-  .carousel-item-next.carousel-item-left+.carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-    visibility: visible;
-  }
-  /* farthest right hidden item must be abso position for animations */
-  .carousel-inner .carousel-item-prev.carousel-item-right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    display: block;
-    visibility: visible;
-  }
-  /* right or prev direction */
-  .active.carousel-item-right+.carousel-item-prev.carousel-item-right,
-  .carousel-item-prev.carousel-item-right+.carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-    visibility: visible;
-    display: block;
-    visibility: visible;
-  }
-}
 
-/* Desktop and up */
-
-@media screen and (min-width: 992px) {
-  .carousel-inner .active,
-  .carousel-inner .active+.carousel-item,
-  .carousel-inner .active+.carousel-item+.carousel-item {
-    display: block;
-  }
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item,
-  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+.carousel-item+.carousel-item {
-    -webkit-transition: none;
-    transition: none;
-  }
-  .carousel-inner .carousel-item-next,
-  .carousel-inner .carousel-item-prev {
-    position: relative;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  .carousel-inner .active.carousel-item+.carousel-item+.carousel-item+.carousel-item {
-    position: absolute;
-    top: 0;
-    right: -33.3333%;
-    z-index: -1;
-    display: block;
-    visibility: visible;
-  }
-  /* left or forward direction */
-  .active.carousel-item-left+.carousel-item-next.carousel-item-left,
-  .carousel-item-next.carousel-item-left+.carousel-item,
-  .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item,
-  .carousel-item-next.carousel-item-left+.carousel-item+.carousel-item+.carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-    visibility: visible;
-  }
-  /* farthest right hidden item must be abso position for animations */
-  .carousel-inner .carousel-item-prev.carousel-item-right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    display: block;
-    visibility: visible;
-  }
-  /* right or prev direction */
-  .active.carousel-item-right+.carousel-item-prev.carousel-item-right,
-  .carousel-item-prev.carousel-item-right+.carousel-item,
-  .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item,
-  .carousel-item-prev.carousel-item-right+.carousel-item+.carousel-item+.carousel-item {
-    position: relative;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-    visibility: visible;
-    display: block;
-    visibility: visible;
-  }
-}
 
 .modal-header, .close {
   background-color: #5cb85c;
@@ -1600,16 +1437,6 @@ Additional CSS
   background-color: #f9f9f9;
 }
 
-/******************/
-
 .carousel-item {
-  max-height: 650px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  max-height: 750px;
 }
-
-
-/****************************/
