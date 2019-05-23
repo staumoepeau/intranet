@@ -106,6 +106,14 @@
     items: 1
   });
 
+    // news block carousel (uses the Owl Carousel library)
+    $(".news-two-carousel").owlCarousel({
+      autoplay: true,
+      dots: true,
+      loop: true,
+      items: 2
+    });
+
   $(".news-carousel").owlCarousel({
     autoplay: true,
     dots: true,
@@ -146,3 +154,23 @@ $('#myCarousel.carousel .itemm').each(function(){
     $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
   }
 });
+
+
+
+$(document).ready(function() {
+  $("#owl-tal").owlCarousel({
+      navigation : true, // Show next and prev buttons
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true
+ 
+      // "singleItem:true" is a shortcut for:
+      // items : 1, 
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+ 
+  });
+});
+

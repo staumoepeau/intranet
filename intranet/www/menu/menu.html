@@ -14,7 +14,7 @@
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 						{% for heading, list in items | groupby('sub_menu') %}
 					<li class="nav-item">
-						<a class="nav-link" id="{{ group }}-{{ heading }}-tab" data-toggle="tab" href="#{{'_'.join(group.split()).lower()}}-{{ '_'.join(heading.split()).lower() }}" role="tab" aria-controls="{{ group }}-{{ heading }}" aria-selected="true">{{ heading }}</a>
+						<a class="nav-link" id="{{ group }}-{{ heading }}-tab" data-toggle="tab" href="#{{'_'.join(group.split()).lower()}}-{{ '_'.join(heading.split()).lower() }}" role="tab" aria-controls="{{ group }}-{{ heading }}" aria-selected="true">{{ heading }}            <span class="badge badge-pill badge-success">{{ list |count }}</span></a>
 					</li>
 					{% endfor %}
 					</ul>
@@ -28,9 +28,10 @@
 							<div class="tab-pane fade show" id="{{'_'.join(group.split()).lower()}}-{{ '_'.join(heading.split()).lower() }}" aria-labelledby="{{ group }}-{{ heading }}-tab">
 									{% for document in list %}
 									<ul class="list-group list-group-flush">
-											<li class="list-group-item">{{ document.file_name }}
+										
+										<li class="list-group-item"><i class="fa fa-file-o fa-1x text-info" aria-hidden="true"></i>    {{ document.file_name }}
 												<a href="{{ document.file_url }}">
-													<span class="pull-right btn btn-success">Download</span>
+													<span class="pull-right btn btn-success"><i class="fa fa-download" aria-hidden="true"></i> Download</span>
 													</a>
 											</li>
 									</ul>

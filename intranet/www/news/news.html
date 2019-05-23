@@ -11,24 +11,41 @@
             <p></p>
         </header>
 
-              <div class="owl-carousel news-carousel">
+        <div class="row">
+            <div class="col-lg-12">
+
+              {% if latest_news |count == 1  %}
+                <div class="owl-carousel news-block-carousel wow fadeInUp">
+
+              {% elif latest_news |count == 2 %}
+                <div class="owl-carousel news-two-carousel wow fadeInUp">
+
+              {% elif latest_news |count > 2 %}
+                <div class="owl-carousel news-carousel">
+              {% endif %}  
+              
               {% for news in latest_news %}
-            
-              <div class="news-item">
+                
+                  <div class="news-item">
 
-                  <h3>{{ news.news_title }}</h3>
-                  <p>{{ news.news_sub_title }}</p>
-                  <p>
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ news.name }}">
-                          Read More
-                      </button>
-                  </p>
-                </div>
-            {% endfor %}
+                      <h3>{{ news.news_title }}</h3>
+                      <p>{{ news.news_sub_title }}</p>
+                      <p>
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ news.name }}">
+                              Read More
+                          </button>
+                      </p>
+                  </div>
+                {% endfor %}
+            </div>
           </div>
-
+          
       </div>
   
+
+
+
+
   {% for news in latest_news %}
   <!-- Modal -->
   <div class="modal fade" id="{{ news.name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

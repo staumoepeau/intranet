@@ -594,6 +594,24 @@ h6 {
   background-color: #007bff;
 }
 
+#owl-tal {
+  display: none;
+  
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1;
+}
+#owl-tal .item img{
+  box-sizing: content-box;
+  padding: 30px 30px 0 30px;
+  margin: 30px 15px;
+  text-align: center;
+  min-height: 200px;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+
 /* Services Section
 --------------------------------*/
 
