@@ -34,7 +34,11 @@ def get_data():
 					"type": "doctype",
 					"name": "Intranet News",
 				},
-								{
+				{
+					"type": "doctype",
+					"name": "Intranet Announcement",
+				},
+				{
 					"type": "doctype",
 					"name": "Intranet Vacancy",
 				},

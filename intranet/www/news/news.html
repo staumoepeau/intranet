@@ -3,27 +3,17 @@
     ==============================================================================-->
 
 {% if latest_news %}
-<section id="news" class="section-bg-grey">
-    <div class="container" >
 
+    <div class="container" id="news">
+        
         <header class="section-header">
             <h3>Latest News</h3>
-            <p></p>
         </header>
 
         <div class="row">
+          
             <div class="col-lg-12">
-
-              {% if latest_news |count == 1  %}
-                <div class="owl-carousel news-block-carousel wow fadeInUp">
-
-              {% elif latest_news |count == 2 %}
                 <div class="owl-carousel news-two-carousel wow fadeInUp">
-
-              {% elif latest_news |count > 2 %}
-                <div class="owl-carousel news-carousel">
-              {% endif %}  
-              
               {% for news in latest_news %}
                 
                   <div class="news-item">
@@ -38,29 +28,22 @@
                   </div>
                 {% endfor %}
             </div>
-          </div>
-          
+            </div>
+       
       </div>
   
-
-
-
-
   {% for news in latest_news %}
   <!-- Modal -->
-  <div class="modal fade" id="{{ news.name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="{{ news.name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title"><strong>{{ news.news_title }}</strong></h5>
         </div>
         <div class="modal-body">
-          <p>
-              <img src="img/quote-sign-left.png" class="quote-sign-left" alt="">
+          <h6>
             {{ news.news_details }}
-            <img src="img/quote-sign-right.png" class="quote-sign-right" alt="">
-          </p>
+          </h6>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
@@ -69,5 +52,5 @@
     </div>
   </div>
 {% endfor %}
+</div>
 {% endif %}
-</section>
