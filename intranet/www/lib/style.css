@@ -459,7 +459,7 @@ h6 {
 /* Sections Header
 --------------------------------*/
 .section-header {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .section-header h2 {
@@ -523,27 +523,6 @@ h6 {
   padding: 30px 0 50px;
 }
 
-.section-header .section-divider {
- 
-  display: block;
-  width: 150px;
-  height: 3px;
-  background: #00438f;
-  background: linear-gradient(0deg, #00438f 0%, #00438f 100%);
-  margin: 0 auto;
-  margin-bottom: 0px;
-}
-
-.section-bg-blue .section-header .section-divider {
-
-  display: block;
-  width: 150px;
-  height: 3px;
-  background: #fefeff;
-  background: linear-gradient(0deg, #fefeff 0%, ##fefeff 100%);
-  margin: 0 auto;
-  margin-bottom: 0px;
-}
 
 /*
 
@@ -1055,7 +1034,7 @@ Why Us Section
 --------------------------------*/
 
 #hr-contents {
-  padding: 30px 0;
+  padding: 50px 0;
   box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
 }
 
