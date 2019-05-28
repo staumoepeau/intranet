@@ -15,19 +15,17 @@
 					<header class="section-header">
 
 					{% if group == "Finance" %}
-						<h3 class="section-title">
-							<i class="fa fa-money text-primary" aria-hidden="true"></i>
-							&nbsp;{{ group }}</h3>
+						<h3 class="section-title"><i class="fa fa-bank text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
 					{% elif group == "Human Resources" %}
-						<h3 class="section-title"><i class="fa fa-user text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+						<h3 class="section-title"><i class="fa fa-user-o text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
 					{% elif group == "Operations" %}
-						<h3 class="section-title"><i class="fa fa-gear text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+						<h3 class="section-title"><i class="fa fa-gears text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
 					{% elif group == "Domestic Airports" %}
-						<h3 class="section-title"><i class="fa fa-plane text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+						<h3 class="section-title"><i class="fa fa-paper-plane-o text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
 					{% elif group == "Legislation" %}
 						<h3 class="section-title"><i class="fa fa-balance-scale text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
 					{% elif group == "Safety" %}
-						<h3 class="section-title"><i class="fa fa-user-hard-hat text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+						<h3 class="section-title"><i class="fa fa-shield text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
 					{% else %}
 						<h3 class="section-title"><i class="fa fa-object-group text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
 					{% endif %}
@@ -37,7 +35,15 @@
 			
 					<li class="nav-item">
 							<a class="nav-link" id="{{ group }}-{{ heading }}-tab" data-toggle="tab" href="#{{'_'.join(group.split()).lower()}}-{{ '_'.join(heading.split()).lower() }}" role="tab" aria-controls="{{ group }}-{{ heading }}" aria-selected="true">
-								<h5 class="title"><i class="fa fa-book" aria-hidden="true"></i>&ensp;{{ heading }}&ensp;<span class="badge badge-pill badge-warning">{{ list |count }}</span></h5></a>
+								<h5 class="title">
+								{% if heading == "Forms" %}
+									<i class="fa fa-clipboard" aria-hidden="true"></i>
+								{% elif heading == "Manual" %}
+									<i class="fa fa-files-o" aria-hidden="true"></i>
+								{% else %}
+									<i class="fa fa-file" aria-hidden="true"></i>
+								{% endif %}
+									&ensp;{{ heading }}&ensp;<span class="badge badge-pill badge-warning">{{ list |count }}</span></h5></a>
 					</li>
 				
 					{% endfor %}
