@@ -1,0 +1,15 @@
+{
+    "css/internet.min.css": [
+        "public/css/intranet.css",
+        "public/css/skin-blue.css",
+        "public/css/custom.css"
+    ],
+    "js/intranet.min.js": [
+        "public/js/AdminLTE.js",
+        "public/js/custom.js"
+    ],
+    "js/intranet-template.min.js": [
+        "public/js/template/main-sidebar.html"
+    ]
+    
+}

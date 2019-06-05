@@ -1,0 +1,23 @@
+   <!--===========================================================================
+                                        Announcement Section
+    ==============================================================================-->
+
+{% if announcement %}
+  {% for item in announcement %}
+      <section id="announcement" class="section-bg-white">
+        
+          <div class="container" >
+              <div class="box">
+              <header class="section-header">
+                  <h3>{{ item.announcement_title }}</h3>
+              </header>
+
+
+                    
+                          <p>{{ item.announcement_details }}</p>
+             
+              </div>
+          </div>
+      </section>
+    {% endfor %}
+{% endif %}

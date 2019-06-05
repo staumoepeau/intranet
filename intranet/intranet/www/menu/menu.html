@@ -1,0 +1,109 @@
+
+{% for group, items in document_manager | groupby('top_menu') %}
+	{% for menu in navbar_menu %}
+		{% if menu.intranet_menu == group %}
+			{% if menu.background_image %}
+				<section style ="background-image: url('{{ menu.background_image }}'); background-color: rgba(255,255,255,0.5); background-blend-mode: lighten;" class= "{{ menu.section_background }}" id="{{ menu.section_class }}">
+			{% else %}
+				<section class= "{{ menu.section_background }}" id="{{ menu.section_class }}">
+			{% endif %}
+		{% endif %}
+
+	{% endfor %}
+				<div id = "{{'_'.join(group.split()).lower()}}">
+				<div class="container">
+					<header class="section-header">
+
+					{% if group == "Finance" %}
+						<h3 class="section-title"><i class="fa fa-bank text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+					{% elif group == "Human Resources" %}
+						<h3 class="section-title"><i class="fa fa-user-o text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+					{% elif group == "Operations" %}
+						<h3 class="section-title"><i class="fa fa-gears text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+					{% elif group == "Domestic Airports" %}
+						<h3 class="section-title"><i class="fa fa-paper-plane-o text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+					{% elif group == "Legislation" %}
+						<h3 class="section-title"><i class="fa fa-balance-scale text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+					{% elif group == "Safety" %}
+						<h3 class="section-title"><i class="fa fa-shield text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+					{% else %}
+						<h3 class="section-title"><i class="fa fa-object-group text-primary" aria-hidden="true"></i>&nbsp;{{ group }}</h3>
+					{% endif %}
+				</header>
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+						{% for heading, list in items | groupby('sub_menu') %}
+			
+					<li class="nav-item">
+							<a class="nav-link" id="{{ group }}-{{ heading }}-tab" data-toggle="tab" href="#{{'_'.join(group.split()).lower()}}-{{ '_'.join(heading.split()).lower() }}" role="tab" aria-controls="{{ group }}-{{ heading }}" aria-selected="true">
+								<h5 class="title">
+								{% if heading == "Forms" %}
+									<i class="fa fa-clipboard" aria-hidden="true"></i>
+								{% elif heading == "Manual" %}
+									<i class="fa fa-files-o" aria-hidden="true"></i>
+								{% else %}
+									<i class="fa fa-file" aria-hidden="true"></i>
+								{% endif %}
+									&ensp;{{ heading }}&ensp;<span class="badge badge-pill badge-warning">{{ list |count }}</span></h5></a>
+					</li>
+				
+					{% endfor %}
+					</ul>
+
+					<div class="tab-content" id="myTabContent">
+
+						{% for heading, list in items | groupby('sub_menu') %}
+							
+							{% for submenu in subheading %}
+							{% if submenu.sub_menu == heading %}
+							<div class="tab-pane fade show" id="{{'_'.join(group.split()).lower()}}-{{ '_'.join(heading.split()).lower() }}" aria-labelledby="{{ group }}-{{ heading }}-tab">
+									{% for document in list %}
+									<ul class="list-group list-group-flush">
+
+										<li class="list-group-item">
+											<div class="row">
+												<div class="col-lg-1">
+													{% if document.file_name.endswith(('.docx', '.odt', '.doc')): %}
+														<i class="pull-left fa fa-file-word-o fa-2x text-danger" aria-hidden="true"></i>
+													{% elif document.file_name.endswith(('.xlsx' , '.xls')): %}
+														<i class="pull-left fa fa-file-excel-o fa-2x text-danger" aria-hidden="true"></i>
+													{% elif document.file_name.endswith('.pdf'): %}
+														<i class="pull-left fa fa-file-pdf-o fa-2x text-danger" aria-hidden="true"></i>
+													{% elif document.file_name.endswith(('.jpg', '.png', 'tiff', 'gif')): %}
+														<i class="pull-left fa fa-file-image-o fa-2x text-danger" aria-hidden="true"></i>
+													{% else %}
+														<i class="pull-left fa fa-file fa-2x text-danger" aria-hidden="true"></i>
+													{% endif %}
+												</div>
+												<div class="col-lg-9">
+
+														<h6><b>{{ document.file_name }}</b></h6>
+														<div class="row">
+														<div class="col-lg-6">
+													<h6 class="text-muted">Uploaded by :  {{ frappe.db.get_value("User", document.owner, "full_name") }}</h6>
+												</div>
+													<div class="col-lg-6">
+															<h6 class="text-muted">Date : {{ frappe.utils.formatdate(document.modified) }}</h6>
+													</div>
+												</div>
+												</div>
+												<div class="col-lg-2">
+												<a href="{{ document.file_url }}">
+													<span class="pull-right btn btn-success"><i class="fa fa-download" aria-hidden="true"></i> Download</span>
+													</a>
+												</div>
+											</div>
+											</li>
+									</ul>
+										{% endfor %}
+							</div>
+							{% endif %}
+							{% endfor %}
+						{% endfor %}
+
+					</div>
+				</div>
+				</div>
+			
+			</section>
+{% endfor %}
+

@@ -16,7 +16,20 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/intranet/css/intranet.css"
-app_include_js = "/assets/intranet/js/intranet.js"
+app_include_css = [
+    "/assets/intranet/css/intranet.css",
+    "/assets/intranet/css/skin-blue.css",
+    "/assets/intranet/css/custom.css",
+    "/assets/intranet/css/temp.css",
+]
+app_include_js = [
+    "/assets/intranet/js/AdminLTE.js",
+    "/assets/intranet/js/custom.js",
+    "/assets/js/intranet-template.min.js",
+]
+
+# include js, css files in header of web template
+web_include_css = "/assets/intranet/css/intranet-web.css"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/intranet/css/intranet.css"

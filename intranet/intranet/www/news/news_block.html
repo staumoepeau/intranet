@@ -1,0 +1,46 @@
+   <!--===========================================================================
+                                        News Section
+    ==============================================================================-->
+
+{% if latest_news %}
+<h3>News</h3>
+        <div class="row">
+          <div class="col-lg-6">
+
+              <div class="owl-carousel news-block-carousel wow fadeInUp">
+              {% for news in latest_news %}           
+              <div class="news-item">
+                  <h5>{{ news.news_title }}</h5>
+                  <p>
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{ news.name }}">
+                          Read More
+                      </button>
+                  </p>             
+              </div>       
+            {% endfor %}
+          </div>
+
+          
+          </div>
+        </div>
+
+  
+  {% for news in latest_news %}
+  <!-- Modal -->
+  <div class="modal fade" id="{{ news.name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ news.news_title }}</h5>
+        </div>
+        <div class="modal-body">
+            {{ news.news_details }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
