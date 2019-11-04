@@ -1,11 +1,13 @@
 """
 Configuration for docs
 """
+from __future__ import unicode_literals
 
-# source_link = "https://github.com/[org_name]/intranet"
+source_link = "https://github.com/staumoepeau/intranet"
 # docs_base_url = "https://[org_name].github.io/intranet"
-# headline = "App that does everything"
-# sub_heading = "Yes, you got that right the first time, everything"
+#headline = "Intranet"
+#sub_heading = "Yes, you got that right the first time, everything"
 
-def get_context(context):
-	context.brand_html = "Intranet"
+#def get_context(context):
+#	context.brand_html = "Intranet"
+#	pass
